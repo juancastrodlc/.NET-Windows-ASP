@@ -1,8 +1,10 @@
-﻿Public Class Service1
+﻿Public Class DogeService
 
     Protected Overrides Sub OnStart(ByVal args() As String)
         ' Add code here to start your service. This method should set things
         ' in motion so your service can do its work.
+
+
     End Sub
 
     Protected Overrides Sub OnStop()

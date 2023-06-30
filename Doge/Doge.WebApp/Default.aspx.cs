@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Doge.WebApp
 {
@@ -11,7 +7,6 @@ namespace Doge.WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
