@@ -1,6 +1,5 @@
 ﻿Imports System.Data.Entity
 Imports System.Data.Entity.ModelConfiguration
-Imports System.Runtime.Remoting.Contexts
 Imports Doge.Model
 
 Public Class OrdersDbContext
@@ -39,7 +38,7 @@ Public Class OrdersDbContext
         End Using
     End Sub
     Public Sub Seed()
-        Orders.Add(New Model.Order With {
+        Orders.Add(New Order With {
             .OrderId = "ORD-827328738394616457",
             .Number = "86",
             .Street = "Randall Mill Lane Lutherville",
@@ -47,9 +46,9 @@ Public Class OrdersDbContext
             .State = "MD",
             .PostalCode = "21093",
             .DeliveryBy = Date.UtcNow.AddMinutes(3),
-.Created = Date.UtcNow})
+            .Created = Date.UtcNow})
 
-        Orders.Add(New Model.Order With {
+        Orders.Add(New Order With {
             .OrderId = "ORD-8189310825445357906",
             .Number = "9848",
             .Street = "NW. Roberts St.",
@@ -59,7 +58,7 @@ Public Class OrdersDbContext
             .DeliveryBy = Date.UtcNow.AddDays(4).AddHours(10).AddMinutes(25),
             .Created = Date.UtcNow})
 
-        Context.Orders.AddOrUpdate(New Model.Order With {
+        Orders.Add(New Order With {
             .OrderId = "ORD-8189310825445357906",
             .Number = "9693",
             .Street = "Stonybrook St.",
@@ -68,7 +67,10 @@ Public Class OrdersDbContext
             .PostalCode = "36605",
             .DeliveryBy = Date.UtcNow.AddHours(10).AddMinutes(25),
             .Created = Date.UtcNow})
+        SaveChanges()
+
     End Sub
+
     Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
         CreateTables()
         OnModelCreatingTable(modelBuilder.Entity(Of Order))
